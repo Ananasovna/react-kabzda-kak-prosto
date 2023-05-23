@@ -17,7 +17,6 @@ function App() {
 
 function Rating()
 {
-    debugger;
     return (
         <div>
             <Star />
@@ -39,15 +38,28 @@ function Star() {
 
 
 function Accordion() {
-    debugger;
+    console.log('Accordion');
     return <div>
+        <AccordionTitle />
+       <AccordionBody />
+    </div>
+}
+
+function AccordionTitle () {
+    console.log('title');
+    return (
         <h3>Меню</h3>
+    )
+}
+function AccordionBody () {
+    console.log('body');
+    return (
         <ul>
             <li>1</li>
             <li>2</li>
             <li>3</li>
         </ul>
-    </div>
+    )
 }
 
 export default App;
