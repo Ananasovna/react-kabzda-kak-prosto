@@ -12,12 +12,9 @@ const root = ReactDOM.createRoot(
 let a = [1, 2, 3,4];
 
 
-
-
-
 root.render(
   <React.StrictMode>
-    <div></div>
+    <App />
   </React.StrictMode>
 );
 
