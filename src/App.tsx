@@ -14,8 +14,8 @@ function App() {
           <input/>
         This is app
           <Rating value={3}/>
-          <Accordion title={'Title 1'}/>
-          <Accordion title={'Title 2'}/>
+          <Accordion collapsed={true} title={'Title 1'}/>
+          <Accordion collapsed={false} title={'Title 2'}/>
           <Rating value={4}/>
       </div>
     </div>
