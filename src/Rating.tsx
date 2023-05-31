@@ -1,17 +1,24 @@
-import React from "react";
+import React, {ReactNode} from "react";
 
-type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5;
+export type RatingPropsType = {
+    value: ValueType;
 }
+
+export type ValueType = 0 | 1 | 2 | 3 | 4 | 5;
 export function Rating(props: RatingPropsType) {
+
+    const returnStars = (value: ValueType) : ReactNode[] => {
+        let stars = [];
+        for (let i = 1; i <= 5; i++) {
+           stars.push(<Star selected={value > i - 1}/>);
+        }
+
+        return stars;
+    }
 
     return (
         <div>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
+            {returnStars(props.value)}
         </div>
 
     )
@@ -20,11 +27,8 @@ export function Rating(props: RatingPropsType) {
 type StarPropsType = {
     selected: boolean;
 }
+
 function Star(props: StarPropsType) {
-    if (props.selected === true) {
-        return <span><b>star</b></span>;
-      } else {
-        return <span>star</span>;
-    }
+    return props.selected ? <span><b>star</b></span> : <span>star</span>;
 
 }
