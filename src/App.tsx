@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {SelfControlledAccordion} from "./components/acordion/SelfControlledAcordion";
+import {UncontrolledAccordion} from "./components/acordion/UncontrolledAcordion";
 import {UncontrolledRating} from "./components/rating/UncontrolledRating";
 
 
@@ -8,8 +8,8 @@ function App() {
 
     return (
         <div className="App">
-            <SelfControlledAccordion title={'Menu'} />
-            <SelfControlledAccordion title={'To do'} />
+            <UncontrolledAccordion title={'Menu'} />
+            <UncontrolledAccordion title={'To do'} />
             <UncontrolledRating />
             {/*<div>*/}
             {/*    <input type="text"/>*/}
