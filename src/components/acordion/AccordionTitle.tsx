@@ -2,10 +2,11 @@ import React from "react";
 
 type AccordionTitlePropsType = {
     title: string;
+    callBack: () => void;
 }
 export const AccordionTitle = (props: AccordionTitlePropsType) => {
-    console.log('title');
+
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={props.callBack}>{props.title}</h3>
     )
 }

@@ -1,8 +1,5 @@
 import React, {ReactNode, useState} from "react";
 
-// export type RatingPropsType = {
-//
-// }
 
 export type ValueType = 0 | 1 | 2 | 3 | 4 | 5;
 export function UncontrolledRating() {
@@ -12,7 +9,7 @@ export function UncontrolledRating() {
     const returnStars = (value: ValueType) : ReactNode[] => {
         let stars = [];
         for (let i = 1; i <= 5; i++) {
-           stars.push(<Star id={i as ValueType} setStars={setStars} selected={value > i - 1}/>);
+           stars.push(<Star key={i} setStars={() => setStars(i as ValueType)} selected={value > i - 1}/>);
         }
 
         return stars;
@@ -31,14 +28,15 @@ export function UncontrolledRating() {
 }
 
 type StarPropsType = {
-    id: ValueType;
     selected: boolean;
-    setStars: (id: ValueType)=> void
+    setStars: ()=> void
 }
 
 function Star(props: StarPropsType) {
-    return props.selected ?
-        <span onClick={() => props.setStars(props.id)}><b>star</b></span>
-        : <span onClick={() => props.setStars(props.id)}>star</span>;
+    return (
+        <span onClick={props.setStars}>
+            {props.selected ? <b>star</b> : 'star'}
+        </span>
 
+    )
 }
