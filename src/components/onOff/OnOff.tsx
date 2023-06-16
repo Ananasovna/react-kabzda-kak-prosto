@@ -1,10 +1,10 @@
 import styles from './OnOff.module.css';
 import {useState} from "react";
 
-type OnOffPropsType = {
-    // on: boolean;
+type OnOffProps = {
+    onChange: (on: boolean) => void;
 }
-export const OnOff = () => {
+export const OnOff = ({onChange} : OnOffProps) => {
 
     const [on, setOn] = useState(false);
 
@@ -39,6 +39,7 @@ export const OnOff = () => {
 
     const toggleOn = (value: boolean) => {
             setOn(value);
+            onChange(value);
         }
 
     // const switchOn = () => {

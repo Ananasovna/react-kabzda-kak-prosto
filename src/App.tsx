@@ -45,12 +45,12 @@ function App() {
                 <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>
             {/*</div>*/}
             {/*<div>*/}
-                <OnOff/>
-                <OnOff/>
-                <OnOff/>
-            <ControlledOnOff status={on} callBack={toggleOn}/>
-            <ControlledOnOff status={on} callBack={toggleOn}/>
-            <ControlledOnOff status={on} callBack={toggleOn}/>
+                <OnOff onChange={setOn}/>{on.toString()}
+                <OnOff onChange={setOn}/>
+                <OnOff onChange={setOn}/>
+            {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
+            {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
+            {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
             {/*</div>*/}
         </div>
     );
