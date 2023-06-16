@@ -3,15 +3,16 @@ import {AccordionBody} from "./AccordionBody";
 import {AccordionTitle} from "./AccordionTitle";
 
 type AccordionPropsType = {
-    title: string;
-    collapsed: boolean;
+    title: string,
+    collapsed: boolean,
+    callBack: () => void,
 }
 
 export const Accordion = (props: AccordionPropsType) => {
 
     return (
         <div>
-          {/*<AccordionTitle title={props.title}/>*/}
+          <AccordionTitle title={props.title} callBack={props.callBack}/>
           {!props.collapsed && <AccordionBody/>}
         </div>
     )
