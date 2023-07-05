@@ -1,11 +1,16 @@
 import React from "react";
+import {ItemType} from "./Accordion";
 
-export const AccordionBody = () => {
+
+type AccordionBody = {
+    items: ItemType[]
+    onClick: (value: any) => void
+}
+
+export const AccordionBody = ({items, onClick}: AccordionBody) => {
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {items.map((el, index) => <li onClick={() => onClick(el.value)} key={index}>{el.title}</li>)}
         </ul>
     )
 }

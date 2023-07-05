@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import {UncontrolledAccordion} from "./components/acordion/UncontrolledAcordion";
 import {UncontrolledRating, ValueType} from "./components/rating/UncontrolledRating";
 import {Rating} from "./components/rating/Rating";
-import {Accordion} from "./components/acordion/Accordion";
 import {OnOff} from "./components/onOff/OnOff";
-import {ControlledOnOff} from "./components/onOff/ControlledOnOff";
+import {Select} from "./components/select/Select";
 
 
 function App() {
@@ -13,6 +11,7 @@ function App() {
     const [value, setValue] = useState<ValueType>(0);
     const [collapsed, setCollapsed] = useState(true);
     const [on, setOn] = useState(false);
+    const [selectValue, setSelectValue] = useState(0)
 
     const setStars = (id: ValueType) => {
         id === value ? setValue(0) : setValue(id);
@@ -26,6 +25,13 @@ function App() {
         setOn(!on);
     }
 
+    const users = [
+        {title: 'Dimych', value: 1},
+        {title: 'Anna', value: 2},
+        {title: 'Elena', value: 3},
+        {title: 'Nikolay', value: 4},
+    ]
+
     return (
         <div className="App">
             {/*<UncontrolledAccordion title={'Menu'} />*/}
@@ -38,8 +44,8 @@ function App() {
             {/*    <input/>*/}
             {/*    This is app*/}
             {/*    <Rating value={3}/>*/}
-                <Accordion collapsed={collapsed} callBack={toggleCollapsed} title={'Title 1'}/>
-                <Accordion collapsed={collapsed} callBack={toggleCollapsed} title={'Title 2'}/>
+            {/*    <Accordion items={users} collapsed={collapsed} callBack={toggleCollapsed} title={'Title 1'}/>*/}
+            {/*    <Accordion items={users} collapsed={collapsed} callBack={toggleCollapsed} title={'Title 2'}/>*/}
                 <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>
                 <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>
                 <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>
@@ -52,6 +58,7 @@ function App() {
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
             {/*</div>*/}
+            <Select value={selectValue} items={users} onClick={setSelectValue} />
         </div>
     );
 }

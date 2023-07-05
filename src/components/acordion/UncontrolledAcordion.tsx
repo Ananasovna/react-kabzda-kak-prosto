@@ -4,7 +4,11 @@ import React, {useState} from "react";
 
 type AccordionPropsType = {
     title: string;
+    onClick: (value: any) => void
 }
+
+
+
 
 export const UncontrolledAccordion = (props: AccordionPropsType) => {
 
@@ -17,8 +21,7 @@ export const UncontrolledAccordion = (props: AccordionPropsType) => {
     return (
         <div>
             <AccordionTitle title={props.title} callBack={toggleCollapsed}/>
-            {!collapsed && <AccordionBody/>}
-
+            {/*{!collapsed && <AccordionBody  items={props.items}/>}*/}
         </div>
     )
 
