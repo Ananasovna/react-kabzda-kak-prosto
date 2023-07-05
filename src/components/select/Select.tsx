@@ -32,7 +32,7 @@ export const Select = ({value, onClick, items}: SelectPropsType) => {
         <div className={styles.selectWrapper}>
             <div className={styles.select} onClick={toggleCollapsed}>
                 <div>{value}</div>
-                <div className={collapsed ? styles.icon : styles.iconRotated}><ArrowDownIcon/></div>
+                <div className={collapsed ? styles.iconRotated : styles.icon}><ArrowDownIcon/></div>
 
             </div>
             <div className={collapsed ? styles.values : styles.closedValues}>
