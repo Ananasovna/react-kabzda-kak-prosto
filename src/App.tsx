@@ -11,7 +11,7 @@ function App() {
     const [value, setValue] = useState<ValueType>(0);
     const [collapsed, setCollapsed] = useState(true);
     const [on, setOn] = useState(false);
-    const [selectValue, setSelectValue] = useState(0)
+    const [selectValue, setSelectValue] = useState(undefined)
 
     const setStars = (id: ValueType) => {
         id === value ? setValue(0) : setValue(id);

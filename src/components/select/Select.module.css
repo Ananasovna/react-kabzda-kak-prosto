@@ -1,0 +1,89 @@
+.selectWrapper {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    cursor: pointer;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: 3s;
+}
+
+.select {
+    min-width: 70px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 7px;
+    background: lightgrey;
+    border-bottom: 3px solid darkblue;
+}
+
+.select:hover {
+    background: darkgrey;
+}
+
+.select:active {
+    background: slategrey;
+
+}
+
+.values {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    animation: openValues 0.7s;
+}
+
+.closedValues {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 0;
+    animation: closeValues 0.7s;
+}
+
+.valueItem {
+    padding: 5px;
+}
+
+.valueItem:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.valueItem:active {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    transition: 0.5s;
+}
+
+.iconRotated {
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+
+@keyframes openValues {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 132px;
+    }
+}
+
+@keyframes closeValues {
+    from {
+        height: 132px;
+    }
+
+    to {
+        height: 0;
+    }
+}
