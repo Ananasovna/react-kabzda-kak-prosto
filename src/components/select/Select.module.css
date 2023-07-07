@@ -4,9 +4,14 @@
     flex-direction: column;
     margin: 10px 0;
     cursor: pointer;
-    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.1);
+
     overflow: hidden;
-    transition: 3s;
+}
+
+.selectWrapper:focus {
+    box-shadow: 0 0 6px 3px rgba(0, 0, 139, 0.3);
+    outline: none;
+
 }
 
 .select {
@@ -34,7 +39,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 5px;
     animation: openValues 0.7s;
 }
 
@@ -42,8 +46,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 5px;
     height: 0;
+    animation: closeValues 0.4s;
+}
+
+.animatedClosed {
     animation: closeValues 0.7s;
 }
 
@@ -51,11 +58,12 @@
     padding: 5px;
 }
 
+
 .valueItem:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 
-.valueItem:active {
+.valueItem:active, .activeValueItem {
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -74,13 +82,13 @@
     }
 
     to {
-        height: 132px;
+        height: 117px;
     }
 }
 
 @keyframes closeValues {
     from {
-        height: 132px;
+        height: 117px;
     }
 
     to {

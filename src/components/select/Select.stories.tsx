@@ -15,8 +15,8 @@ const users = [
 ]
 
 
-export const OpenSelectChangingMode = () => {
-    const [selectValue, setSelectValue] = useState(0)
+export const SelectChangingMode = () => {
+    const [selectValue, setSelectValue] = useState(undefined)
 
     return (
         <Select value={selectValue} onClick={(value) => setSelectValue(value)} items={users}/>

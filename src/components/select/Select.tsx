@@ -1,6 +1,5 @@
 import {ItemType} from "../acordion/Accordion";
-import {useState} from "react";
-import {inspect} from "util";
+import {KeyboardEvent, useEffect, useState} from "react";
 import styles from './Select.module.css';
 import {ArrowDownIcon} from "../icons/ArrowDownIcon";
 
@@ -12,31 +11,51 @@ type SelectPropsType = {
 }
 
 export const Select = ({value, onClick, items}: SelectPropsType) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
 
-    const toggleCollapsed = () => {
-        setCollapsed(!collapsed);
+    const setIsCollapsedTrue = () => {
+        setCollapsed(true);
+    }
+
+    const setIsCollapsedFalse = () => {
+        setCollapsed(false);
     }
 
     const onClickHandler = (el: ItemType) => {
         onClick(el.value);
-        toggleCollapsed();
+        setIsCollapsedTrue();
     }
 
     const getUsers = () => {
-        return items.map(el => <div className={styles.valueItem} onClick={() => onClickHandler(el)} key={el.value}>{`${el.value}. ${el.title}`}</div>)
+        return items.map(el => <div className={`${el.value === value && styles.activeValueItem}  ${styles.valueItem}`} onClick={() => onClickHandler(el)} key={el.value}>{`${el.value}. ${el.title}`}</div>)
     }
 
+    const onKeyDownHandler = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            setIsCollapsedFalse();
+            e.key === 'ArrowDown' ? (!value && onClick(items[0].value)) : (!value && onClick(items[items.length - 1].value));
+            for (let i = 0; i < items.length; i++) {
+                const nextSelectedValue = e.key === 'ArrowDown' ? items[i + 1]?.value : items[i - 1]?.value;
+                if (items[i].value === value && nextSelectedValue) {
+                    onClick(nextSelectedValue);
+                    return;
+                }
+            }
+        }
+
+        if (e.key === 'Enter' || e.key === 'Escape') {
+            setIsCollapsedTrue();
+        }
+    }
 
     return (
-        <div className={styles.selectWrapper}>
-            <div className={styles.select} onClick={toggleCollapsed}>
+        <div className={styles.selectWrapper} tabIndex={0} onKeyDown={onKeyDownHandler} onBlur={setIsCollapsedTrue}>
+            <div className={styles.select} onClick={collapsed ? setIsCollapsedFalse : setIsCollapsedTrue}>
                 <div>{value}</div>
-                <div className={collapsed ? styles.iconRotated : styles.icon}><ArrowDownIcon/></div>
-
+                <div className={!collapsed ? styles.iconRotated : styles.icon}><ArrowDownIcon/></div>
             </div>
-            <div className={collapsed ? styles.values : styles.closedValues}>
-                {getUsers()}
+            <div className={collapsed ? styles.closedValues : styles.values}>
+                {!collapsed && getUsers()}
             </div>
 
         </div>
