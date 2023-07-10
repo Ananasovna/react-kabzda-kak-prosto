@@ -4,6 +4,8 @@ import {UncontrolledRating, ValueType} from "./components/rating/UncontrolledRat
 import {Rating} from "./components/rating/Rating";
 import {OnOff} from "./components/onOff/OnOff";
 import {Select} from "./components/select/Select";
+import {UncontrolledAccordion} from "./components/acordion/UncontrolledAcordion";
+import {ItemType} from "./components/acordion/Accordion";
 
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
         setOn(!on);
     }
 
-    const users = [
+    const users:  ItemType[] = [
         {title: 'Dimych', value: 1},
         {title: 'Anna', value: 2},
         {title: 'Elena', value: 3},
@@ -34,11 +36,11 @@ function App() {
 
     return (
         <div className="App">
-            {/*<UncontrolledAccordion title={'Menu'} />*/}
-            {/*<UncontrolledAccordion title={'To do'} />*/}
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
+            <UncontrolledAccordion title={'Menu'} items={users}/>
+            <UncontrolledAccordion title={'To do'} items={users}/>
+            {/*<UncontrolledRating />*/}
+            {/*<UncontrolledRating />*/}
+            {/*<UncontrolledRating />*/}
             {/*<div>*/}
             {/*    <input type="text"/>*/}
             {/*    <input/>*/}
@@ -46,14 +48,14 @@ function App() {
             {/*    <Rating value={3}/>*/}
             {/*    <Accordion items={users} collapsed={collapsed} callBack={toggleCollapsed} title={'Title 1'}/>*/}
             {/*    <Accordion items={users} collapsed={collapsed} callBack={toggleCollapsed} title={'Title 2'}/>*/}
-                <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>
-                <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>
-                <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>
+            {/*    <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>*/}
+            {/*    <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>*/}
+            {/*    <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>*/}
             {/*</div>*/}
             {/*<div>*/}
-                <OnOff onChange={setOn}/>{on.toString()}
-                <OnOff onChange={setOn}/>
-                <OnOff onChange={setOn}/>
+            {/*    <OnOff onChange={setOn}/>{on.toString()}*/}
+            {/*    <OnOff onChange={setOn}/>*/}
+            {/*    <OnOff onChange={setOn}/>*/}
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
