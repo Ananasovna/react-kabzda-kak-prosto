@@ -33,41 +33,18 @@ export const OnOff = ({onChange} : OnOffProps) => {
         background: on ? 'green' : 'red',
     }
 
-    // const toggleOn = () => {
-    //     setOn(!on);
-    // }
 
     const toggleOn = (value: boolean) => {
             setOn(value);
             onChange(value);
         }
 
-    // const switchOn = () => {
-    //     setOn(true);
-    // }
-    // const switchOff = () => {
-    //     setOn(false);
-    // }
-
     return (
         <div className={styles.wrapper}>
             <div onClick={() => toggleOn(true)} style={onStyle}>On</div>
             <div onClick={() => toggleOn(false)} style={offStyle}>Off</div>
             <div style={indicatorStyle}></div>
-            {/*<div className={styles.buttonWrapper}>*/}
-            {/*    {props.value*/}
-            {/*        ? <div className={`${styles.green} ${styles.button}`}>on</div>*/}
-            {/*        : <div className={styles.button}>on</div>*/}
-            {/*    }*/}
-            {/*    {!props.value*/}
-            {/*        ? <div className={`${styles.red} ${styles.button}`}>off</div>*/}
-            {/*        : <div className={styles.button}>off</div>*/}
-            {/*    }*/}
-            {/*</div>*/}
-            {/*{props.value*/}
-            {/*    ? <div className={styles.greenRound}></div>*/}
-            {/*    : <div className={styles.redRound}></div>*/}
-            {/*}*/}
+
 
         </div>
     )

@@ -13,6 +13,7 @@ type AccordionPropsType = {
 export type ItemType = {
     title: string
     value: any
+
 }
 
 export const Accordion = (props: AccordionPropsType) => {

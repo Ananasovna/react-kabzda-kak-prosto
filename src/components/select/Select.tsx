@@ -2,15 +2,17 @@ import {ItemType} from "../acordion/Accordion";
 import {KeyboardEvent, useEffect, useState} from "react";
 import styles from './Select.module.css';
 import {ArrowDownIcon} from "../icons/ArrowDownIcon";
+import {CityInfoType} from "../../stories/Select.stories";
 
 
 type SelectPropsType = {
     value: any
     onClick: (value: any) => void
-    items: ItemType[]
+    items: any[]
 }
 
 export const Select = ({value, onClick, items}: SelectPropsType) => {
+    console.log('hy,it\'s select ')
     const [collapsed, setCollapsed] = useState(true);
 
     const setIsCollapsedTrue = () => {
@@ -27,7 +29,7 @@ export const Select = ({value, onClick, items}: SelectPropsType) => {
     }
 
     const getUsers = () => {
-        return items.map(el => <div className={`${el.value === value && styles.activeValueItem}  ${styles.valueItem}`} onClick={() => onClickHandler(el)} key={el.value}>{`${el.value}. ${el.title}`}</div>)
+        return items.map((el, index) => <div className={`${el.value === value && styles.activeValueItem}  ${styles.valueItem}`} onClick={() => onClickHandler(el)} key={index}>{`${el.value}. ${el.title}`}</div>)
     }
 
     const onKeyDownHandler = (e: KeyboardEvent<HTMLDivElement>) => {
