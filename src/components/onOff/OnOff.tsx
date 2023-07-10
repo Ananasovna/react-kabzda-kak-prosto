@@ -1,5 +1,5 @@
 import styles from './OnOff.module.css';
-import {useState} from "react";
+import React, {useMemo, useState} from "react";
 
 type OnOffProps = {
     onChange: (on: boolean) => void;
@@ -72,3 +72,5 @@ export const OnOff = ({onChange} : OnOffProps) => {
         </div>
     )
 }
+
+export const MemoizedOnOff = React.memo(OnOff)

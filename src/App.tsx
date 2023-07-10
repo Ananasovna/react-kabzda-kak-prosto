@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {UncontrolledRating, ValueType} from "./components/rating/UncontrolledRating";
+import {MemoizedUncontrolledRating, UncontrolledRating, ValueType} from "./components/rating/UncontrolledRating";
 import {Rating} from "./components/rating/Rating";
-import {OnOff} from "./components/onOff/OnOff";
+import {MemoizedOnOff, OnOff} from "./components/onOff/OnOff";
 import {Select} from "./components/select/Select";
-import {UncontrolledAccordion} from "./components/acordion/UncontrolledAcordion";
+import {MemoizedUncontrolledAccordion, UncontrolledAccordion} from "./components/acordion/UncontrolledAcordion";
 import {ItemType} from "./components/acordion/Accordion";
 
 
@@ -36,11 +36,11 @@ function App() {
 
     return (
         <div className="App">
-            <UncontrolledAccordion title={'Menu'} items={users}/>
-            <UncontrolledAccordion title={'To do'} items={users}/>
-            {/*<UncontrolledRating />*/}
-            {/*<UncontrolledRating />*/}
-            {/*<UncontrolledRating />*/}
+            {/*<MemoizedUncontrolledAccordion title={'Menu'} items={users}/>*/}
+            {/*<MemoizedUncontrolledAccordion title={'To do'} items={users}/>*/}
+            <MemoizedUncontrolledRating />
+            <MemoizedUncontrolledRating />
+            <MemoizedUncontrolledRating />
             {/*<div>*/}
             {/*    <input type="text"/>*/}
             {/*    <input/>*/}
@@ -53,9 +53,9 @@ function App() {
             {/*    <Rating value={value} setStars={(id: ValueType) => setStars(id)}/>*/}
             {/*</div>*/}
             {/*<div>*/}
-            {/*    <OnOff onChange={setOn}/>{on.toString()}*/}
-            {/*    <OnOff onChange={setOn}/>*/}
-            {/*    <OnOff onChange={setOn}/>*/}
+                <MemoizedOnOff onChange={setOn}/>{on.toString()}
+                <MemoizedOnOff onChange={setOn}/>
+                <MemoizedOnOff onChange={setOn}/>
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}
             {/*<ControlledOnOff status={on} callBack={toggleOn}/>*/}

@@ -40,3 +40,5 @@ function Star(props: StarPropsType) {
 
     )
 }
+
+export const MemoizedUncontrolledRating = React.memo(UncontrolledRating);

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './AccordionTitle.module.css';
 
 type AccordionTitlePropsType = {
     title: string;
@@ -7,6 +8,6 @@ type AccordionTitlePropsType = {
 export const AccordionTitle = (props: AccordionTitlePropsType) => {
 
     return (
-        <h3 onClick={(e) => props.callBack()}>{props.title}</h3>
+        <h3 className={styles.h3} onClick={(e) => props.callBack()}>{props.title}</h3>
     )
 }

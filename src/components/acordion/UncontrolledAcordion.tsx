@@ -26,3 +26,5 @@ export const UncontrolledAccordion = (props: AccordionPropsType) => {
     )
 
 }
+
+export const MemoizedUncontrolledAccordion = React.memo(UncontrolledAccordion)
